@@ -673,100 +673,6 @@ i.ph{display:inline-block;line-height:1;vertical-align:-.1em}
         </sc-if>
       </div>
     </div>
-    <div data-pop="ai" style="position:relative;flex:0 0 auto">
-      <button onClick="{{ onToggleAi }}" aria-haspopup="dialog" aria-label="Peça à IA" style="display:flex;align-items:center;gap:7px;height:36px;padding:0 26px;border:1px solid {{ aiBtnBorder }};border-radius:999px;background:{{ aiBtnBg }};color:{{ aiBtnFg }};cursor:pointer;font:400 13px/18px Questrial,sans-serif;white-space:nowrap" style-hover="border-color:#232343;background:#ececf3;color:#17172e">
-        <i class="ph ph-sparkle" aria-hidden="true" style="font-size:16px"></i>Peça à IA
-      </button>
-      <sc-if value="{{ aiPanelOpen }}" hint-placeholder-val="{{ false }}">
-        <div role="dialog" aria-label="Assistente IA" style="position:absolute;top:44px;right:0;width:412px;max-width:calc(100vw - 24px);height:68vh;max-height:68vh;display:flex;flex-direction:column;min-height:0;background:#fff;border:1px solid #E5E7EB;border-radius:18px;box-shadow:0 12px 36px rgba(20,28,36,.22);z-index:900;overflow:hidden">
-          <div style="flex:0 0 48px;display:flex;align-items:center;gap:8px;padding:0 10px 0 16px;border-bottom:1px solid #eceff1">
-            <i class="ph ph-sparkle" aria-hidden="true" style="font-size:18px;color:#232343;flex:0 0 18px"></i>
-            <span style="flex:1 1 auto;min-width:0;font-size:16px;line-height:22px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Assistente IA</span>
-          <span style="position:relative;flex:0 0 28px;display:flex">
-            <button onClick="{{ onAiInfo }}" onMouseEnter="{{ onAiInfoEnter }}" onMouseLeave="{{ onAiInfoLeave }}" aria-label="Sobre o assistente" style="width:28px;height:28px;border:0;border-radius:999px;background:{{ aiInfoBg }};color:{{ aiInfoFg }};cursor:help;display:flex;align-items:center;justify-content:center"><i class="ph ph-info" style="font-size:16px"></i></button>
-            <sc-if value="{{ aiInfoOpen }}" hint-placeholder-val="{{ false }}">
-              <span style="position:absolute;top:32px;right:-6px;width:238px;z-index:6;background:#1b2026;color:#fff;border-radius:10px;padding:9px 11px;font-size:12px;line-height:17px;box-shadow:0 6px 18px rgba(20,28,36,.28)">Responde sobre o recorte atual do mapa: escopo, período, filtros e camadas ativas.</span>
-            </sc-if>
-          </span>
-          <button onClick="{{ onAiReset }}" disabled="{{ aiResetOff }}" aria-label="Reiniciar conversa" style="flex:0 0 28px;width:28px;height:28px;border:0;border-radius:999px;background:transparent;color:{{ aiResetFg }};cursor:{{ aiResetCursor }};display:flex;align-items:center;justify-content:center" style-hover="background:#f2f5f7"><i class="ph ph-arrow-counter-clockwise" style="font-size:16px"></i></button>
-            <button onClick="{{ onCloseAi }}" aria-label="Fechar assistente" style="flex:0 0 32px;width:32px;height:32px;border-radius:999px;border:0;background:transparent;cursor:pointer;color:#8a949e;display:flex;align-items:center;justify-content:center" style-hover="color:#1b2026;background:#f2f5f7"><i class="ph ph-x" style="font-size:16px"></i></button>
-          </div>
-          <div style="flex:1 1 auto;min-height:0;display:flex;flex-direction:column;overflow:hidden">
-        <div style="height:100%;display:flex;flex-direction:column;min-height:0">
-          <sc-if value="{{ aiHasOcc }}" hint-placeholder-val="{{ false }}">
-            <div style="flex:0 0 auto;display:flex;flex-direction:column;gap:2px;padding:9px 14px;border-bottom:1px solid #eceff1;background:#fff">
-              <span style="display:flex;align-items:center;gap:7px">
-                <span aria-hidden="true" style="width:9px;height:9px;flex:0 0 9px;border-radius:50%;background:{{ aiOccPrioColor }}"></span>
-                <span style="font:700 13px/18px Questrial,sans-serif;color:#1b2026">{{ aiOccId }}</span>
-                <span style="font-size:12px;line-height:16px;color:#5b6672">{{ aiOccPrio }}</span>
-              </span>
-              <sc-if value="{{ aiOccAsset }}" hint-placeholder-val="{{ false }}">
-                <span style="font-size:12px;line-height:16px;color:#1b2026;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ aiOccAsset }}</span>
-              </sc-if>
-              <span style="font-size:12px;line-height:16px;color:#8a949e;font-variant-numeric:tabular-nums">{{ aiOccLL }}</span>
-            </div>
-          </sc-if>
-          <div style="flex:0 1 auto;min-height:0;overflow:hidden;padding:9px 12px 10px;border-bottom:1px solid #eceff1;background:#f7f9fa">
-            <button onClick="{{ onAiCtxToggle }}" aria-label="{{ aiCtxTitle }}" style="display:flex;align-items:center;gap:7px;width:100%;border:0;background:transparent;padding:0;cursor:pointer;text-align:left" style-hover="opacity:.8">
-              <i class="ph ph-crosshair-simple" style="font-size:14px;flex:0 0 14px;color:#8a949e"></i>
-              <sc-if value="{{ aiCtxClosed }}" hint-placeholder-val="{{ true }}">
-                <span style="flex:1 1 auto;min-width:0;font-size:12px;line-height:17px;font-weight:400;color:#1b2026;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ aiCtxLine }}</span>
-              </sc-if>
-              <sc-if value="{{ aiCtxOpen }}" hint-placeholder-val="{{ false }}">
-                <span style="flex:1 1 auto;min-width:0;font-size:11px;line-height:15px;font-weight:700;letter-spacing:.07em;color:#8a949e">CONTEXTO ATUAL</span>
-              </sc-if>
-              <i class="ph {{ aiCtxChevron }}" style="font-size:14px;flex:0 0 14px;color:#8a949e"></i>
-            </button>
-            <sc-if value="{{ aiCtxOpen }}" hint-placeholder-val="{{ false }}">
-              <div style="display:flex;flex-direction:column;gap:5px;margin-top:8px">
-                <sc-for list="{{ aiContext }}" as="c" hint-placeholder-count="3">
-                  <span style="display:inline-flex;align-items:center;gap:7px;max-width:100%;min-height:24px;padding:2px 10px;border:1px solid #D8DEE5;background:#fff;border-radius:999px;font-size:12px;line-height:18px;color:#1b2026">
-                    <i class="ph {{ c.icon }}" style="font-size:13px;color:#5b6672;flex:0 0 13px"></i>
-                    <span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ c.label }}</span>
-                  </span>
-                </sc-for>
-              </div>
-            </sc-if>
-          </div>
-          <div ref="{{ aiScrollRef }}" style="flex:1 1 auto;min-height:120px;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px">
-            <sc-for list="{{ aiMsgs }}" as="m" hint-placeholder-count="0">
-              <div style="display:flex;flex-direction:column;gap:7px;align-items:{{ m.align }}">
-                <div style="max-width:92%;padding:10px 12px;border:1px solid {{ m.border }};border-radius:{{ m.radius }};background:{{ m.bg }};color:{{ m.fg }};font-size:13px;line-height:19px;text-wrap:pretty">{{ m.text }}</div>
-                <sc-if value="{{ m.hasActions }}" hint-placeholder-val="{{ false }}">
-                  <div style="display:flex;flex-wrap:wrap;gap:5px;max-width:96%">
-                    <sc-for list="{{ m.actions }}" as="a" hint-placeholder-count="0">
-                      <button onClick="{{ a.onClick }}" style="display:flex;align-items:center;gap:5px;height:26px;padding:0 10px;border:1px solid #d7d7e0;border-radius:999px;background:#ececf3;color:#17172e;font-size:12px;font-weight:400;cursor:pointer;white-space:nowrap" style-hover="border-color:#232343"><i class="ph {{ a.icon }}" style="font-size:13px"></i>{{ a.label }}</button>
-                    </sc-for>
-                  </div>
-                </sc-if>
-              </div>
-            </sc-for>
-            <sc-if value="{{ aiThinking }}" hint-placeholder-val="{{ false }}">
-              <div style="display:flex;align-items:center;gap:5px;align-self:flex-start;padding:11px 13px;border:1px solid #E5E7EB;border-radius:14px 14px 14px 4px;background:#f7f9fa" aria-label="Assistente processando">
-                <span class="qzdot" style="width:6px;height:6px;border-radius:50%;background:#8a949e;animation:qzdot 1.1s ease-in-out infinite"></span>
-                <span class="qzdot" style="width:6px;height:6px;border-radius:50%;background:#8a949e;animation:qzdot 1.1s ease-in-out .16s infinite"></span>
-                <span class="qzdot" style="width:6px;height:6px;border-radius:50%;background:#8a949e;animation:qzdot 1.1s ease-in-out .32s infinite"></span>
-              </div>
-            </sc-if>
-            <sc-if value="{{ aiHasSug }}" hint-placeholder-val="{{ true }}">
-              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:2px">
-                <sc-for list="{{ aiSugs }}" as="q" hint-placeholder-count="3">
-                  <button onClick="{{ q.onClick }}" style="display:flex;align-items:center;gap:6px;height:28px;padding:0 11px;border:1px solid #E5E7EB;border-radius:999px;background:#fff;cursor:pointer;font-size:12px;line-height:16px;color:#1b2026;white-space:nowrap" style-hover="border-color:#232343;background:#f7f9fa"><i class="ph {{ q.icon }}" style="font-size:13px;color:#232343;flex:0 0 13px"></i>{{ q.label }}</button>
-                </sc-for>
-              </div>
-            </sc-if>
-          </div>
-          <div style="flex:0 0 auto;padding:10px 12px 12px;border-top:1px solid #eceff1;background:#fff">
-            <div style="display:flex;align-items:flex-end;gap:8px">
-              <textarea value="{{ aiInput }}" onChange="{{ onAiInput }}" onKeyDown="{{ onAiKey }}" rows="1" placeholder="Pergunte sobre o recorte atual…" style="flex:1 1 auto;min-width:0;min-height:40px;max-height:96px;box-sizing:border-box;border:1px solid #D8DEE5;border-radius:16px;padding:10px 12px;font-size:13px;line-height:18px;font-family:Questrial,sans-serif;color:#1b2026;resize:none"></textarea>
-              <button onClick="{{ onAiSend }}" disabled="{{ aiSendOff }}" aria-label="Enviar pergunta" style="width:40px;height:40px;flex:0 0 40px;border:0;border-radius:999px;background:{{ aiSendBg }};color:{{ aiSendFg }};cursor:{{ aiSendCursor }};display:flex;align-items:center;justify-content:center"><i class="ph ph-paper-plane-right" style="font-size:18px"></i></button>
-            </div>
-          </div>
-        </div>
-          </div>
-        </div>
-      </sc-if>
-    </div>
     <div style="display:flex;align-items:center;gap:10px;flex:0 1 auto;min-width:0">
       <sc-if value="{{ alertsPillOn }}" hint-placeholder-val="{{ true }}">
       <button onClick="{{ onToggleAlerts }}" onMouseEnter="{{ tipBellEnter }}" onMouseLeave="{{ tipBellLeave }}" onFocus="{{ tipBellFocus }}" onBlur="{{ tipBellLeave }}" style="position:relative;height:40px;padding:0 14px;background:{{ bellBg }};border:1px solid {{ bellBorder }};box-shadow:{{ bellShadow }};border-radius:999px;cursor:pointer;font-size:14px;font-weight:400;color:{{ bellFg }};display:flex;align-items:center;gap:8px;flex:0 0 auto" style-hover="border-color:#232343">
@@ -2356,7 +2262,6 @@ i.ph{display:inline-block;line-height:1;vertical-align:-.1em}
             <div style="font-size:13px;line-height:19px;font-weight:400;color:{{ det.sumColor }};margin-top:9px;font-variant-numeric:tabular-nums;text-wrap:pretty">{{ det.sumLine }}</div>
             <div style="display:flex;gap:7px;margin-top:12px;flex-wrap:wrap">
               <button onClick="{{ onCenterDetail }}" aria-label="Centralizar o foco no mapa" style="height:30px;padding:0 12px;display:flex;align-items:center;gap:7px;background:#fff;border:1px solid #cfd6dc;font-size:12px;cursor:pointer;color:#1b2026;border-radius:999px" style-hover="border-color:#232343"><i class="ph ph-crosshair" style="font-size:15px;color:#5b6672"></i>Centralizar</button>
-              <button onClick="{{ onAskAiAboutOcc }}" aria-label="Analisar esta ocorrência com IA" style="height:30px;padding:0 12px;display:flex;align-items:center;gap:7px;background:#fff;border:1px solid #cfd6dc;font-size:12px;cursor:pointer;color:#1b2026;border-radius:999px" style-hover="border-color:#232343"><i class="ph ph-sparkle" style="font-size:15px;color:#5b6672"></i>Analisar com IA</button>
               <button onClick="{{ onDetailStv }}" aria-label="Abrir Street View deste foco" style="height:30px;padding:0 12px;display:flex;align-items:center;gap:7px;background:#fff;border:1px solid #cfd6dc;font-size:12px;cursor:pointer;color:#1b2026;border-radius:999px" style-hover="border-color:#232343"><i class="ph ph-person" style="font-size:15px;color:#5b6672"></i>Street View</button>
               <button onClick="{{ onDetailSat }}" aria-label="Abrir imagens de satélite deste foco" style="height:30px;padding:0 12px;display:flex;align-items:center;gap:7px;background:#fff;border:1px solid #cfd6dc;font-size:12px;cursor:pointer;color:#1b2026;border-radius:999px" style-hover="border-color:#232343"><i class="ph ph-globe-simple" style="font-size:15px;color:#5b6672"></i>Satélite</button>
             </div>
@@ -3690,9 +3595,6 @@ i.ph{display:inline-block;line-height:1;vertical-align:-.1em}
             </sc-if>
             <sc-if value="{{ ctxHasExpandMini }}" hint-placeholder-val="{{ false }}">
               <button onClick="{{ onCtxExpand }}" aria-label="{{ ctxExpandLabel }}" title="{{ ctxExpandLabel }} painel" aria-pressed="{{ ctxExpandOn }}" style="width:28px;height:28px;flex:0 0 28px;border:0;border-radius:999px;background:transparent;cursor:pointer;color:#5b6672;display:flex;align-items:center;justify-content:center;padding:0" style-hover="background:#f2f5f7;color:#1b2026"><i class="ph {{ ctxExpandIcon }}" style="font-size:15px"></i></button>
-            </sc-if>
-            <sc-if value="{{ ctxHasAi }}" hint-placeholder-val="{{ false }}">
-              <button onClick="{{ onCtxAi }}" aria-label="{{ ctxAiLabel }}" title="Analisar com IA" style="width:28px;height:28px;flex:0 0 28px;border:0;border-radius:999px;background:transparent;cursor:pointer;color:#5b6672;display:flex;align-items:center;justify-content:center;padding:0" style-hover="background:#f2f5f7;color:#1b2026"><i class="ph ph-sparkle" style="font-size:15px"></i></button>
             </sc-if>
             <sc-if value="{{ ctxHasCenter }}" hint-placeholder-val="{{ false }}">
               <button onClick="{{ onCtxCenter }}" aria-label="Centralizar no mapa" title="Centralizar no mapa" style="width:28px;height:28px;flex:0 0 28px;border:0;border-radius:999px;background:transparent;cursor:pointer;color:#5b6672;display:flex;align-items:center;justify-content:center;padding:0" style-hover="background:#f2f5f7;color:#1b2026"><i class="ph ph-crosshair" style="font-size:15px"></i></button>
